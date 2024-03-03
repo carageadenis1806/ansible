@@ -11,3 +11,7 @@
   - name: update repository index
     apt:
        update_cache: yes
+
+  - name: add php support for apache
+    apt:
+       name: libapache2-mod-php     
