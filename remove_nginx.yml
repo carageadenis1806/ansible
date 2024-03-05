@@ -3,10 +3,10 @@
   tasks:
 
   - name: stop nginx
-      service:
-          name: nginx
-          state: stopped
-          
+    service:
+        name: nginx
+        state: stopped
+
   - name: remove Nginx
     apt:
        name: nginx
