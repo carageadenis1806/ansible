@@ -6,3 +6,4 @@
     apt:
        name: nginx
        state: absent
+       autoremove: yes
