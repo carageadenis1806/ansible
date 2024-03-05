@@ -13,4 +13,24 @@
     service:
        name: nginx
        state: started
+
+  - name: Remove default Nginx page
+    file:
+      path: /var/www/html/index.nginx-debian.html
+      state: absent
+
+  - name: Add Hello World Page
+    copy:
+      dest: /var/www/html/index.html
+      content: |
+        <!DOCTYPE html>
+        <html>
+        <body>
+        <h1> Hello, World! </h1>
+        </body>
+        </html>
   
+  - name: Restart nginx to apply changes
+    service:
+      name: nginx
+      state: restarted
