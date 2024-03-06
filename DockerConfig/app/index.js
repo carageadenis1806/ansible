@@ -1,6 +1,10 @@
-const app = require("express")();
+const express = require("express");
+const app = express();
+const internalPort = 9999;
 
 app.get("/", (req, res) => 
-res.send("Docker container web app running on external port ${process.env.PORT || internalPort}"));
+  res.send(`Docker container web app running on external port ${process.env.PORT || internalPort}`));
 
-app.listen(9999, ()=> console.log("Listening on 9999"))
+const server = app.listen(internalPort, () => {
+  console.log(`Server is running on internal port ${internalPort}`);
+});
